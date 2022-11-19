@@ -3,6 +3,8 @@
 namespace Caydeesoft\Permission\Traits;
 
 use Caydeesoft\Permission\Models\Role;
+use Caydeesoft\Permission\Models\PermissionRole;
+use Caydeesoft\Permission\Models\Permission;
 
 trait HasRoles
 {
@@ -17,6 +19,6 @@ trait HasRoles
         }
     public function permission()
         {
-            return $this->hasManyThrough(Permission::class,Permission_Role::class,'role_id','id','role_id','permission_id');
+            return $this->hasManyThrough(Permission::class,PermissionRole::class,'role_id','id','role_id','permission_id');
         }
 }
