@@ -1,0 +1,28 @@
+{
+    "name": "caydeesoft/permission",
+    "description": "Laravel user permission package",
+    "authors": [
+        {
+            "name": "Amir Yousefi",
+            "email": "amiryousefi.it@gmail.com"
+        },
+        {
+            "name": "Dennis K Kiptugen",
+            "email": "dennis.kiptoo@caydeesoft.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Caydeesoft\\Permission\\LaravelPermissionServiceProvider"
+            ]
+        }
+    },
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Caydeesoft\\Permission\\": "src/"
+        }
+    }
+}
