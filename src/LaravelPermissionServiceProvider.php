@@ -21,11 +21,11 @@ class LaravelPermissionServiceProvider extends ServiceProvider {
 
         $router->aliasMiddleware('auth.role', AuthRoles::class);
 
-        Blade::directive('can_access', function ($expression) {
+        Blade::directive('canaccess', function ($expression) {
             return "&lt;?php if (Auth::user()->permission->contains('name',$expression)) : ?&gt;";
         });
 
-        Blade::directive('endcan_access', function ($expression) {
+        Blade::directive('endcanaccess', function ($expression) {
             return '&lt;?php endif; ?&gt;';
         });
     }

@@ -123,9 +123,9 @@ $ php artisan permissions:clear --roles admin --tables permission_role
 ```
 On routes you can now
 ```
-@can_access('home.index')
+@canaccess('home.index')
     <a href="{{ route("home.index") }}">Home</a>
-@endcan_access
+@endcanaccess
 ```
 
 
