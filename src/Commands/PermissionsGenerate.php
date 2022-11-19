@@ -56,7 +56,7 @@ class PermissionsGenerate extends Command
                 {
                     continue;
                 }
-            }
+            
 
             $name = $route->getName();
             $permission = Permission::updateOrCreate(
@@ -81,4 +81,4 @@ class PermissionsGenerate extends Command
             }
     }
 }
-
+}
