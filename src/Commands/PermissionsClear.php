@@ -67,7 +67,7 @@ class PermissionsClear extends Command
                         $query->whereIn('name', $roles_options);
                     })->delete();
                 } else {
-                    DB::table('permission_role')->delete();
+                    DB::table('permission_roles')->delete();
                     Permission::query()->delete();
                 }
             }
