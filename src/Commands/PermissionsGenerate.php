@@ -79,6 +79,6 @@ class PermissionsGenerate extends Command
                     $role->permissions()->syncWithoutDetaching($permission->id);
                 }
             }
-        }
     }
 }
+
