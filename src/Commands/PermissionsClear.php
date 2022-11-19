@@ -1,6 +1,6 @@
 <?php
 
-namespace 
+namespace Caydeesoft\Permission\Commands;
 
 use Caydeesoft\Permission\Models\Permission;
 use Caydeesoft\Permission\Models\Role;
