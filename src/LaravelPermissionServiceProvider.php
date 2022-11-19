@@ -1,7 +1,9 @@
 <?php
 namespace Caydeesoft\Permission;
+
 use Caydeesoft\Permission\Middleware\AuthRoles;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,6 +20,7 @@ class LaravelPermissionServiceProvider extends ServiceProvider {
         }
 
         $router->aliasMiddleware('auth.role', AuthRoles::class);
+        
         Blade::directive('can_access', function ($expression) {
             return "&lt;?php if ({Auth::user()->permission->contains('name',$expression)}) : ?&gt;";
         });
