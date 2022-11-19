@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PermissionRole extends Model
     {
-        use HasFactory;
+       
         public $timestamps = FALSE;
         public function role()
             {
