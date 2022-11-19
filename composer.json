@@ -19,7 +19,7 @@
         }
     },
     "license": "MIT",
-    "require": {},
+    "require": {"php": "^8.0|^8.1"},
     "autoload": {
         "psr-4": {
             "Caydeesoft\\Permission\\": "src/"
