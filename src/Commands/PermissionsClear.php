@@ -50,8 +50,8 @@ class PermissionsClear extends Command
 
             $old_roles = Role::whereIn('name', $roles_options)->get();
 
-            if (in_array('permission_role', $tables_options) || $no_options) {
-                $query = DB::table('permission_role');
+            if (in_array('permission_roles', $tables_options) || $no_options) {
+                $query = DB::table('permission_roles');
 
                 if (count($roles_options) > 0) {
                     $old_roles_id = $old_roles->pluck('id');
@@ -76,7 +76,7 @@ class PermissionsClear extends Command
                 if (count($roles_options) > 0) {
                     Role::whereIn('name', $roles_options)->delete();
                 } else {
-                    DB::table('permission_role')->delete();
+                    DB::table('permission_roles')->delete();
                     Role::query()->delete();
                 }
             }
