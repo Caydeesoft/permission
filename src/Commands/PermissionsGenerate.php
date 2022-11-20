@@ -52,7 +52,7 @@ class PermissionsGenerate extends Command
         foreach ($routes as $route){
             $action = $route->getActionname();
 
-            if ($action == "Closure")
+            if ($action == "Closure" || !in_array('auth.role',$route->action['middleware']))
                 {
                     continue;
                 }
