@@ -10,6 +10,8 @@ class PermissionRole extends Model
     {
        
         public $timestamps = FALSE;
+        protected $table = 'permission_role';
+        
         public function role()
             {
                 return $this->belongsTo(Role::class);
