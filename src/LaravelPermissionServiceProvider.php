@@ -26,7 +26,7 @@ class LaravelPermissionServiceProvider extends ServiceProvider {
         });
 
         Blade::directive('endcanaccess', function () {
-            return '<php endif; ?>';
+            return '<?php endif; ?>';
         });
     }
     public function register()
