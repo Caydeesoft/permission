@@ -3,12 +3,10 @@ namespace Caydeesoft\Permission\Helpers;
 
 use Illuminate\Support\Facades\Auth;
 
-
-
-
-if(!function_exists('can_access'))
+class Helpers
     {
-        function can_access($routename)
+    
+        public function can_access($routename)
             {
                 if (Auth::user()->permission->contains('name',$routename))
                     {
@@ -16,4 +14,8 @@ if(!function_exists('can_access'))
                     }
                 return false;
             }
+        
     }
+
+
+
