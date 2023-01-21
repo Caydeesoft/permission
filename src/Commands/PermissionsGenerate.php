@@ -56,11 +56,12 @@ class PermissionsGenerate extends Command
                 {
                     continue;
                 }
-            
+           
 
             $name = $route->getName();
             $permission = Permission::updateOrCreate(
                 ['name'=>$name],
+                ['access_level'=>($route->action['access_level'])??'default'],
                 ['action'=>$action]
             );
 
