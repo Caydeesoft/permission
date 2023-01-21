@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 class Helpers
     {
     
-        public function can_access($routename)
+        public static function can_access($routename)
             {
                 if (Auth::user()->permission->contains('name',$routename))
                     {
