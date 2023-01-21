@@ -24,6 +24,6 @@
         "psr-4": {
             "Caydeesoft\\Permission\\": "src/"
         }
-    },
-    "files": ["caydeesoft/permission/Helpers/helpers.php"]
+    }
+   
 }
