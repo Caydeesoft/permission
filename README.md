@@ -48,6 +48,7 @@ Route::group([
     'middleware' => 'auth.role',
     'prefix' => ...,
     'role' => ['admin', 'customer'],
+    'access_level' => ['owner', 'client']
     ...
 ],function (){
     ...
@@ -59,13 +60,13 @@ Route::group([
 Of course, you can have as many as route groups like this.
 <br>
 Then you need to run this artisan command to register all permissions:
-```
+```bash
 $ php artisan permissions:generate 
 ```
 This command will register all permissions and assign permissions to the roles.
 <br>
 If you add a `fresh` option to this command, it will delete all data and generate fresh permissions data:
-```
+```bash
 $ php artisan permissions:generate --fresh
 ```
 <br>
@@ -80,7 +81,7 @@ The `php artisan permissions:generate` command will make all roles defined in th
 <br>
 Also, You can create a seeder to fill the `roles` table. It takes only a `name` field.
 <br>
-Your `RolesSeeser` file can look like this.
+Your `RolesSeeder` file can look like this.
 ```php
 Role::firstOrCreate(['name' => 'admin']);
 Role::firstOrCreate(['name' => 'customer']);
@@ -92,42 +93,59 @@ use Caydeesoft\Permission\Models\Role;
 
 ### How to clear permissions
 To clear registered permissions you can run this command:
-```
+```bash
 $ php artisan permissions:clear
 ```
 
 You can use this command to clear all permissions data for a specific role
-```
+```bash
 $ php artisan permissions:clear --roles role1 role2
 ```
 
 To erase only permissions list, run `permissions:clear` command with this option:
-```
+```bash
 $ php artisan permissions:clear --tables permissions
 ```
 
 To clear all roles:
-```
+```bash
 $ php artisan permissions:clear --tables roles
 ```
 
 To clear only permissions role relation:
-```
+```bash
 $ php artisan permissions:clear --tables permission_role
 ```
 This command erases all permissions assigned to roles, so you can regenerate permissions
 
 Also, you can use these options in combination:
-```
+```bash
 $ php artisan permissions:clear --roles admin --tables permission_role
 ```
-On routes you can now
-```
-@canaccess('home.index')
+On blade template routes you can now check routes access like this:
+```blade
+@canaccess(routename e.g 'home.index')
     <a href="{{ route("home.index") }}">Home</a>
 @endcanaccess
 ```
-
+On Controllers you can check routes like this:
+```php
+use Caydeesoft\Permission\Helpers\Helpers;
+class HomeController extends Controller
+{
+    public function index()
+        {
+           if(Helpers::can_access({routename e.g 'home.index'}))
+                {
+                    do something;
+                } 
+            else
+                {
+                    do other things;
+                }    
+        }
+}
+```
 
 ## About
 I used this Laravel permission management method in my projects for a while. It made manging Laravel permission easy and flexible for me. I hope it helps you as well. All pull requests are welcome. A contribution of [Amir Yousefi package](https://github.com/amiryousefi/laravel-permission)
