@@ -1,14 +1,17 @@
 {
     "name": "caydeesoft/permission",
     "description": "Laravel user permission package",
+    "homepage": "https://github.com/caydeesoft/permission",
     "authors": [
         {
             "name": "Amir Yousefi",
-            "email": "amiryousefi.it@gmail.com"
+            "email": "amiryousefi.it@gmail.com",
+            "homepage": "https://amiryousefi.com"
         },
         {
             "name": "Dennis K Kiptugen",
-            "email": "dennis.kiptoo@caydeesoft.com"
+            "email": "dennis.kiptoo@caydeesoft.com",
+            "homepage": "https://www.caydeesoft.com"
         }
     ],
     "extra": {
@@ -24,6 +27,13 @@
         "psr-4": {
             "Caydeesoft\\Permission\\": "src/"
         }
-    }
+    },
+    "prefer-stable": true,
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/caydeesoft"
+        }
+    ]
    
 }
