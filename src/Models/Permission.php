@@ -9,7 +9,7 @@ class Permission extends Model
     {
         public $timestamps = false;
 
-        protected $fillable = ['name','access_level','permission_group_id', 'action'];
+        protected $fillable = ['name','actual_name','access_level','permission_group_id', 'action'];
         protected $casts =  [
                                 'access_level'=>JsonCast::class
                             ];
