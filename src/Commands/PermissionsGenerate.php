@@ -3,6 +3,7 @@
 namespace Caydeesoft\Permission\Commands;
 
 use Caydeesoft\Permission\Models\Permission;
+use Caydeesoft\Permission\Models\PermissionGroup;
 use Caydeesoft\Permission\Models\Role;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Route;
@@ -59,11 +60,13 @@ class PermissionsGenerate extends Command
            
 
             $name = $route->getName();
-
+			preg_match('/[^.]*/', $name,$matches);
+			$permGroup = PermissionGroup::firstOrCreate(['name'=>$matches[0]]);
             $access = ($route->action['access_level'])??['default'];
             $permission = Permission::updateOrCreate(
                 ['name'=>$name],
-                ['access_level'=>$access,'action'=>$action]
+                ['access_level'=>$access,'permission_group_id'=>$permGroup->id,'action'=>$action]
+	            
             );
 
             if (key_exists('role', $route->action)) {
