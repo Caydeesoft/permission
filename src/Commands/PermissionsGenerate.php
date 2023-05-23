@@ -62,10 +62,11 @@ class PermissionsGenerate extends Command
             $name = $route->getName();
 			preg_match('/[^.]*/', $name,$matches);
 			$permGroup = PermissionGroup::firstOrCreate(['name'=>$matches[0]]);
+			$ac = str_replace($matches[0].'.','',$name);
             $access = ($route->action['access_level'])??['default'];
             $permission = Permission::updateOrCreate(
                 ['name'=>$name],
-                ['access_level'=>$access,'permission_group_id'=>$permGroup->id,'action'=>$action]
+                ['access_level'=>$access,'actual_name'=>$ac,'permission_group_id'=>$permGroup->id,'action'=>$action]
 	            
             );
 
